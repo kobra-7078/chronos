@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: "New York", -apple-system-ui-serif, "Newsreader", "Iowan Old Style", "Apple Garamond", "Baskerville", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+    /* Theme: Warm Amber (Default) */
+    --theme-bg: #14110e;
+    --theme-surface: #1d1814;
+    --theme-surface-hover: #26201b;
+    --theme-surface-subtle: #171310;
+    --theme-border: rgba(224, 160, 96, 0.14);
+    --theme-border-strong: rgba(224, 160, 96, 0.28);
+    --theme-accent: #d97736;
+    --theme-accent-light: #f39c55;
+    --theme-accent-subtle: rgba(217, 119, 54, 0.12);
+    --theme-text: #f7f2ea;
+    --theme-text-muted: #9e9384;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+  }
+
+  h1, h2, .font-editorial {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Warm theme variants */
+[data-theme="warm-amber"] {
+  --theme-bg: #14110e;
+  --theme-surface: #1d1814;
+  --theme-surface-hover: #26201b;
+  --theme-surface-subtle: #171310;
+  --theme-border: rgba(224, 160, 96, 0.14);
+  --theme-border-strong: rgba(224, 160, 96, 0.3);
+  --theme-accent: #d97736;
+  --theme-accent-light: #f39c55;
+  --theme-accent-subtle: rgba(217, 119, 54, 0.12);
+  --theme-text: #f7f2ea;
+  --theme-text-muted: #9e9384;
+}
+
+[data-theme="terracotta"] {
+  --theme-bg: #151010;
+  --theme-surface: #1e1615;
+  --theme-surface-hover: #271d1c;
+  --theme-surface-subtle: #181212;
+  --theme-border: rgba(232, 110, 88, 0.16);
+  --theme-border-strong: rgba(232, 110, 88, 0.32);
+  --theme-accent: #dd6247;
+  --theme-accent-light: #f57f66;
+  --theme-accent-subtle: rgba(221, 98, 71, 0.12);
+  --theme-text: #f9f2ee;
+  --theme-text-muted: #a3908c;
+}
+
+[data-theme="warm-sepia"] {
+  --theme-bg: #16120e;
+  --theme-surface: #201a14;
+  --theme-surface-hover: #2b221a;
+  --theme-surface-subtle: #191410;
+  --theme-border: rgba(212, 163, 115, 0.16);
+  --theme-border-strong: rgba(212, 163, 115, 0.32);
+  --theme-accent: #c98a4c;
+  --theme-accent-light: #deb07c;
+  --theme-accent-subtle: rgba(201, 138, 76, 0.14);
+  --theme-text: #fbf5ee;
+  --theme-text-muted: #a89886;
+}
+
+[data-theme="warm-sage"] {
+  --theme-bg: #111412;
+  --theme-surface: #181c19;
+  --theme-surface-hover: #212622;
+  --theme-surface-subtle: #141715;
+  --theme-border: rgba(142, 178, 149, 0.16);
+  --theme-border-strong: rgba(142, 178, 149, 0.32);
+  --theme-accent: #6f9c79;
+  --theme-accent-light: #8ebb98;
+  --theme-accent-subtle: rgba(111, 156, 121, 0.14);
+  --theme-text: #f3f6f3;
+  --theme-text-muted: #8d9a90;
+}
+
+[data-theme="warm-midnight"] {
+  --theme-bg: #111216;
+  --theme-surface: #191b22;
+  --theme-surface-hover: #232530;
+  --theme-surface-subtle: #14161b;
+  --theme-border: rgba(180, 150, 130, 0.14);
+  --theme-border-strong: rgba(210, 165, 135, 0.3);
+  --theme-accent: #d2946c;
+  --theme-accent-light: #e8b08d;
+  --theme-accent-subtle: rgba(210, 148, 108, 0.12);
+  --theme-text: #f4f3f2;
+  --theme-text-muted: #95949d;
+  --theme-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+}
+
+/* Light Theme Variants */
+[data-theme="light-parchment"] {
+  --theme-bg: #faf7f2;
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #f5f0e6;
+  --theme-surface-subtle: #f8f4ec;
+  --theme-border: rgba(180, 140, 95, 0.22);
+  --theme-border-strong: rgba(180, 140, 95, 0.42);
+  --theme-accent: #c86a27;
+  --theme-accent-light: #df7e38;
+  --theme-accent-subtle: rgba(200, 106, 39, 0.12);
+  --theme-text: #1f1b17;
+  --theme-text-muted: #6e6459;
+  --theme-shadow: 0 3px 15px -2px rgba(110, 75, 40, 0.08);
+}
+
+[data-theme="light-sand"] {
+  --theme-bg: #f8f6f1;
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #f1ede3;
+  --theme-surface-subtle: #f5f1e8;
+  --theme-border: rgba(165, 135, 100, 0.22);
+  --theme-border-strong: rgba(165, 135, 100, 0.45);
+  --theme-accent: #b8682a;
+  --theme-accent-light: #d17f3d;
+  --theme-accent-subtle: rgba(184, 104, 42, 0.12);
+  --theme-text: #1c1f1d;
+  --theme-text-muted: #636b66;
+  --theme-shadow: 0 3px 15px -2px rgba(90, 75, 55, 0.07);
+}
+
+[data-theme="light-sage"] {
+  --theme-bg: #f4f7f4;
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #ebf1eb;
+  --theme-surface-subtle: #f0f4f0;
+  --theme-border: rgba(110, 150, 120, 0.24);
+  --theme-border-strong: rgba(110, 150, 120, 0.46);
+  --theme-accent: #4a7c59;
+  --theme-accent-light: #629c73;
+  --theme-accent-subtle: rgba(74, 124, 89, 0.12);
+  --theme-text: #18221b;
+  --theme-text-muted: #5e6f62;
+  --theme-shadow: 0 3px 15px -2px rgba(60, 90, 70, 0.07);
+}
+
+[data-theme="light-terracotta"] {
+  --theme-bg: #fcf7f4;
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #f7ebe6;
+  --theme-surface-subtle: #f9f0ec;
+  --theme-border: rgba(200, 100, 80, 0.22);
+  --theme-border-strong: rgba(200, 100, 80, 0.44);
+  --theme-accent: #c94e34;
+  --theme-accent-light: #e0654b;
+  --theme-accent-subtle: rgba(201, 78, 52, 0.12);
+  --theme-text: #241917;
+  --theme-text-muted: #735e5a;
+  --theme-shadow: 0 3px 15px -2px rgba(130, 60, 45, 0.08);
+}
+
+[data-theme="light-clean"] {
+  --theme-bg: #fcfcfd;
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #f3f4f6;
+  --theme-surface-subtle: #f8fafc;
+  --theme-border: rgba(15, 23, 42, 0.12);
+  --theme-border-strong: rgba(15, 23, 42, 0.25);
+  --theme-accent: #d97706;
+  --theme-accent-light: #f59e0b;
+  --theme-accent-subtle: rgba(217, 119, 6, 0.12);
+  --theme-text: #0f172a;
+  --theme-text-muted: #64748b;
+  --theme-shadow: 0 3px 15px -2px rgba(15, 23, 42, 0.06);
+}
+
+/* Warm glass card styling */
+.glass-card {
+  background-color: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  box-shadow: var(--theme-shadow, 0 4px 20px -2px rgba(0, 0, 0, 0.35));
+}
+
+.glass-card-hover:hover {
+  background-color: var(--theme-surface-hover);
+  border-color: var(--theme-border-strong);
+}
+
+/* Custom warm scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-border-strong);
+}
+
+/* Chronos Dynamic Astronomical Mechanism Animations */
+@keyframes chronos-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes chronos-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-chronos-mechanism {
+  animation: chronos-spin 120s linear infinite;
+}
+
+.group:hover .animate-chronos-mechanism {
+  animation-duration: 35s;
+}
+

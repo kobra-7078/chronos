@@ -1,0 +1,70 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile, active warm theme, and planning availability constraints",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner user UID" },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "format": "email", "maxLength": 200 },
+        "role": { "type": "string", "enum": ["student", "professional", "researcher", "educator", "creator", "custom"] },
+        "focusArea": { "type": "string", "maxLength": 100 },
+        "theme": { "type": "string", "enum": ["warm-amber", "terracotta", "warm-sepia", "warm-sage", "warm-midnight"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "email", "role", "theme"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "Planning task or objective item",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner user UID" },
+        "title": { "type": "string", "maxLength": 300 },
+        "description": { "type": "string", "maxLength": 2000 },
+        "dueDate": { "type": "string" },
+        "estimatedMinutes": { "type": "number" },
+        "remainingMinutes": { "type": "number" },
+        "priority": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
+        "status": { "type": "string", "enum": ["todo", "in_progress", "completed"] },
+        "sourceIntegration": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "title", "estimatedMinutes", "priority", "status"]
+    },
+    "ScheduledSession": {
+      "title": "ScheduledSession",
+      "description": "Scheduled focus block or calendar commitment",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner user UID" },
+        "taskId": { "type": "string" },
+        "title": { "type": "string", "maxLength": 300 },
+        "startTime": { "type": "string" },
+        "endTime": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "sessionType": { "type": "string", "enum": ["deep_work", "review", "commitment", "learning", "break"] },
+        "status": { "type": "string", "enum": ["scheduled", "in_progress", "completed", "missed"] },
+        "isFixed": { "type": "boolean" },
+        "integrationSource": { "type": "string" }
+      },
+      "required": ["userId", "title", "startTime", "endTime", "durationMinutes", "sessionType", "status", "isFixed"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile document"
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/Task" },
+      "description": "User planning tasks and action items"
+    },
+    "/users/{userId}/sessions/{sessionId}": {
+      "schema": { "$ref": "#/entities/ScheduledSession" },
+      "description": "User scheduled focus blocks and commitments"
+    }
+  }
+}
